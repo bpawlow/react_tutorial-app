@@ -30,7 +30,7 @@ const reschedule = async (course, meets) => {
 
 const Course = ({ course, selected, setSelected }) => {
     const isSelected = selected.includes(course);
-    const isDisabled = hasConflict(course, selected);
+    const isDisabled = !isSelected && hasConflict(course, selected);
     const [user] = useUserState();
     const style = {
         backgroundColor: isDisabled ? 'lightgrey' : isSelected ? 'lightgreen' : 'white'
